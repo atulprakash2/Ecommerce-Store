@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Order Successful</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+
+<body>
+
+<nav class="navbar">
+
+  <div class="container">
+
+    <a href="/" class="logo">
+      🛍️ Shop
+    </a>
+
+  </div>
+
+</nav>
+
+
+<div class="success-page">
+
+  <div class="success-card">
+
+    <div class="success-icon">
+      ✓
+    </div>
+
+    <h1>Order Placed Successfully!</h1>
+
+    <p>
+      Thank you for shopping with us.
+    </p>
+
+    <p>
+      Your order has been received and is
+      being processed.
+    </p>
+
+
+    <div
+      id="deliveryInfo"
+      class="delivery-info"
+    ></div>
+
+
+    <div class="success-buttons">
+
+      <a
+        href="/orders.html"
+        class="success-btn"
+      >
+        View My Orders
+      </a>
+
+      <a
+        href="/"
+        class="continue-btn"
+      >
+        Continue Shopping
+      </a>
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+  const saved =
+    localStorage.getItem("lastOrderInfo");
+
+
+  if (saved) {
+
+    try {
+
+      const info =
+        JSON.parse(saved);
+
+
+      document.getElementById(
+        "deliveryInfo"
+      ).innerHTML = `
+
+        <h3>Delivery Details</h3>
+
+        <p>
+          <strong>Name:</strong>
+          ${info.name}
+        </p>
+
+        <p>
+          <strong>Address:</strong>
+          ${info.address},
+          ${info.city} -
+          ${info.pincode}
+        </p>
+
+        <p>
+          <strong>Payment:</strong>
+          ${info.payment === "COD"
+            ? "Cash on Delivery"
+            : "Online Payment"}
+        </p>
+
+      `;
+
+    } catch (error) {
+
+      console.log(error);
+
+    }
+
+  }
+
+</script>
+
+</body>
+
+</html>

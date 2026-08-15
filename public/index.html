@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Shop - Online Store</title>
+
+    <link
+        rel="stylesheet"
+        href="/css/style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <!-- ================================================= -->
+    <!-- NAVBAR -->
+    <!-- ================================================= -->
+
+    <header class="navbar">
+
+        <div class="container">
+
+            <a href="/" class="logo">
+                🛍️ Shop
+            </a>
+
+
+            <!-- SEARCH -->
+
+            <div class="search-box">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Search products..."
+                >
+
+                <button
+                    type="button"
+                    onclick="searchProducts()"
+                >
+                    🔍
+                </button>
+
+            </div>
+
+
+            <!-- NAV LINKS -->
+
+            <div class="nav-links">
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="/orders.html">
+                    Orders
+                </a>
+
+                <a
+                    href="/cart.html"
+                    class="cart-link"
+                >
+                    🛒 Cart
+
+                    <span id="cartCount">
+                        0
+                    </span>
+
+                </a>
+
+                <span id="userArea"></span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- ================================================= -->
+    <!-- HERO -->
+    <!-- ================================================= -->
+
+    <section class="hero">
+
+        <div class="container hero-container">
+
+
+            <div class="hero-content">
+
+                <span class="small-title">
+                    WELCOME TO SHOP
+                </span>
+
+
+                <h1>
+                    Discover Products<br>
+                    You'll <span>Love</span>
+                </h1>
+
+
+                <p>
+                    Find the best products at amazing prices.
+                    Shop your favorite products today.
+                </p>
+
+
+                <a
+                    href="#products"
+                    class="hero-btn"
+                >
+                    Shop Now →
+                </a>
+
+            </div>
+
+
+
+            <div class="hero-image">
+
+                <div class="circle"></div>
+
+                <div class="hero-product">
+                    🛍️
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================= -->
+    <!-- CATEGORIES -->
+    <!-- ================================================= -->
+
+    <section class="categories">
+
+        <div class="container">
+
+
+            <div class="section-heading">
+
+                <div>
+
+                    <span class="small-title">
+                        SHOP BY CATEGORY
+                    </span>
+
+                    <h2>
+                        Popular Categories
+                    </h2>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="category-grid">
+
+
+                <!-- ELECTRONICS -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    onclick="filterCategory('Electronics')"
+                >
+
+                    <span>
+                        🎧
+                    </span>
+
+                    <h3>
+                        Electronics
+                    </h3>
+
+                    <p>
+                        Latest gadgets
+                    </p>
+
+                </button>
+
+
+
+                <!-- FASHION -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    onclick="filterCategory('Fashion')"
+                >
+
+                    <span>
+                        👟
+                    </span>
+
+                    <h3>
+                        Fashion
+                    </h3>
+
+                    <p>
+                        Trending styles
+                    </p>
+
+                </button>
+
+
+
+                <!-- HOME -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    onclick="filterCategory('Home')"
+                >
+
+                    <span>
+                        ☕
+                    </span>
+
+                    <h3>
+                        Home & Kitchen
+                    </h3>
+
+                    <p>
+                        Make home better
+                    </p>
+
+                </button>
+
+
+
+                <!-- ACCESSORIES -->
+
+                <button
+                    type="button"
+                    class="category-card"
+                    onclick="filterCategory('Accessories')"
+                >
+
+                    <span>
+                        🎒
+                    </span>
+
+                    <h3>
+                        Accessories
+                    </h3>
+
+                    <p>
+                        Style & comfort
+                    </p>
+
+                </button>
+
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================= -->
+    <!-- PRODUCTS -->
+    <!-- ================================================= -->
+
+    <section
+        class="products-section"
+        id="products"
+    >
+
+        <div class="container">
+
+
+            <div class="products-header">
+
+
+                <div>
+
+                    <span class="small-title">
+                        OUR COLLECTION
+                    </span>
+
+                    <h2>
+                        Featured Products
+                    </h2>
+
+                </div>
+
+
+
+                <!-- SORT -->
+
+                <div class="sort-box">
+
+                    <select
+                        id="sortSelect"
+                        onchange="sortProducts()"
+                    >
+
+                        <option value="default">
+                            Sort By
+                        </option>
+
+                        <option value="low">
+                            Price: Low to High
+                        </option>
+
+                        <option value="high">
+                            Price: High to Low
+                        </option>
+
+                        <option value="name">
+                            Name: A-Z
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- PRODUCT GRID -->
+
+            <!-- IMPORTANT:
+                 products.js uses exactly this ID
+            -->
+
+            <div
+                id="product-grid"
+                class="product-grid"
+            >
+
+                <div class="loading">
+
+                    Loading products...
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================= -->
+    <!-- OFFER -->
+    <!-- ================================================= -->
+
+    <section class="offer-section">
+
+        <div class="container offer-container">
+
+
+            <div>
+
+                <span>
+                    LIMITED TIME OFFER
+                </span>
+
+                <h2>
+                    Get up to 30% OFF
+                </h2>
+
+                <p>
+                    On selected products.
+                    Don't miss out!
+                </p>
+
+                <a href="#products">
+                    Shop Deals →
+                </a>
+
+            </div>
+
+
+
+            <div class="offer-icon">
+                🛒
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+
+    <!-- ================================================= -->
+    <!-- FOOTER -->
+    <!-- ================================================= -->
+
+    <footer class="footer">
+
+
+        <div class="footer-container">
+
+
+            <!-- ABOUT -->
+
+            <div class="footer-about">
+
+                <h2>
+                    🛍️ Shop
+                </h2>
+
+                <p>
+                    Your one-stop destination for
+                    quality products at great prices.
+                </p>
+
+            </div>
+
+
+
+            <!-- QUICK LINKS -->
+
+            <div>
+
+                <h3>
+                    Quick Links
+                </h3>
+
+                <a href="/">
+                    Home
+                </a>
+
+                <a href="#products">
+                    Products
+                </a>
+
+                <a href="/cart.html">
+                    Cart
+                </a>
+
+                <a href="/orders.html">
+                    Orders
+                </a>
+
+            </div>
+
+
+
+            <!-- CUSTOMER SERVICE -->
+
+            <div>
+
+                <h3>
+                    Customer Service
+                </h3>
+
+                <a href="#">
+                    Contact Us
+                </a>
+
+                <a href="#">
+                    Privacy Policy
+                </a>
+
+                <a href="#">
+                    Terms & Conditions
+                </a>
+
+            </div>
+
+
+
+            <!-- SOCIAL -->
+
+            <div>
+
+                <h3>
+                    Follow Us
+                </h3>
+
+                <p class="socials">
+                    📘 Instagram
+                    &nbsp;&nbsp;
+                    📷 Facebook
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+
+        <div class="copyright">
+
+            © 2026 Shop.
+            All Rights Reserved.
+
+        </div>
+
+
+    </footer>
+
+
+
+    <!-- ================================================= -->
+    <!-- JAVASCRIPT -->
+    <!-- ================================================= -->
+
+    <!-- 1. API FIRST -->
+
+    <script src="/js/api.js"></script>
+
+
+    <!-- 2. PRODUCTS SECOND -->
+
+    <script src="/js/products.js"></script>
+
+
+    <!-- 3. APP LAST -->
+
+    <script src="/js/app.js"></script>
+
+
+</body>
+
+</html>

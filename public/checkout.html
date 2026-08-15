@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <title>Checkout - Shop</title>
+
+  <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+
+<body>
+
+<nav class="navbar">
+
+  <div class="container">
+
+    <a href="/" class="logo">
+      🛍️ Shop
+    </a>
+
+    <ul class="nav-links">
+
+      <li>
+        <a href="/">Home</a>
+      </li>
+
+      <li>
+        <a href="/cart.html">Cart</a>
+      </li>
+
+      <li>
+        <a href="/orders.html">Orders</a>
+      </li>
+
+    </ul>
+
+  </div>
+
+</nav>
+
+
+<main class="checkout-container">
+
+  <div class="checkout-header">
+
+    <span>SECURE CHECKOUT</span>
+
+    <h1>Complete Your Order</h1>
+
+    <p>
+      Enter your delivery details and select
+      your preferred payment method.
+    </p>
+
+  </div>
+
+
+  <div class="checkout-grid">
+
+
+    <!-- LEFT -->
+
+    <div class="checkout-form">
+
+      <section class="checkout-card">
+
+        <h2>📦 Shipping Information</h2>
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label>Full Name</label>
+
+            <input
+              type="text"
+              id="fullName"
+              placeholder="Enter your full name"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>Phone Number</label>
+
+            <input
+              type="tel"
+              id="phone"
+              placeholder="Enter phone number"
+              required
+            >
+
+          </div>
+
+        </div>
+
+
+        <div class="form-group">
+
+          <label>Address</label>
+
+          <textarea
+            id="address"
+            placeholder="House No, Street, Area"
+            rows="3"
+            required
+          ></textarea>
+
+        </div>
+
+
+        <div class="form-row">
+
+          <div class="form-group">
+
+            <label>City</label>
+
+            <input
+              type="text"
+              id="city"
+              placeholder="City"
+              required
+            >
+
+          </div>
+
+
+          <div class="form-group">
+
+            <label>PIN Code</label>
+
+            <input
+              type="text"
+              id="pincode"
+              placeholder="PIN Code"
+              required
+            >
+
+          </div>
+
+        </div>
+
+      </section>
+
+
+      <!-- PAYMENT -->
+
+      <section class="checkout-card">
+
+        <h2>💳 Payment Method</h2>
+
+
+        <label class="payment-option">
+
+          <input
+            type="radio"
+            name="payment"
+            value="COD"
+            checked
+          >
+
+          <div>
+
+            <strong>Cash on Delivery</strong>
+
+            <p>
+              Pay when your order arrives.
+            </p>
+
+          </div>
+
+        </label>
+
+
+        <label class="payment-option">
+
+          <input
+            type="radio"
+            name="payment"
+            value="ONLINE"
+          >
+
+          <section class="checkout-card">
+
+  <h2>💳 Payment Method</h2>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="COD" checked>
+    <div>
+      <strong>💵 Cash on Delivery</strong>
+      <p>Pay when your order arrives.</p>
+    </div>
+  </label>
+
+  <label class="payment-option">
+    <input type="radio" name="payment" value="UPI">
+    <div>
+      <strong>📱 UPI</strong>
+      <p>Pay using Google Pay, PhonePe or Paytm.</p>
+    </div>
+  </label>
+
+  <div id="upiBox" class="payment-box hidden">
+
+    <h3>UPI Payment</h3>
+
+    <div class="upi-apps">
+
+      <button type="button" class="upi-app" data-app="Google Pay">
+        🟢 Google Pay
+      </button>
+
+      <button type="button" class="upi-app" data-app="PhonePe">
+        🟣 PhonePe
+      </button>
+
+      <button type="button" class="upi-app" data-app="Paytm">
+        🔵 Paytm
+      </button>
+
+    </div>
+
+    <p id="selectedUpi">
+      Select your UPI app
+    </p>
+
+  </div>
+
+
+  <label class="payment-option">
+
+    <input type="radio" name="payment" value="CARD">
+
+    <div>
+      <strong>💳 Credit / Debit Card</strong>
+      <p>Visa, Mastercard and other cards.</p>
+    </div>
+
+  </label>
+
+
+  <div id="cardBox" class="payment-box hidden">
+
+    <div class="form-group">
+
+      <label>Card Number</label>
+
+      <input
+        type="text"
+        id="cardNumber"
+        maxlength="19"
+        placeholder="1234 5678 9012 3456"
+      >
+
+    </div>
+
+    <div class="form-row">
+
+      <div class="form-group">
+
+        <label>Expiry</label>
+
+        <input
+          type="text"
+          id="expiry"
+          maxlength="5"
+          placeholder="MM/YY"
+        >
+
+      </div>
+
+      <div class="form-group">
+
+        <label>CVV</label>
+
+        <input
+          type="password"
+          id="cvv"
+          maxlength="3"
+          placeholder="123"
+        >
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <label class="payment-option">
+
+    <input type="radio" name="payment" value="NETBANKING">
+
+    <div>
+      <strong>🏦 Net Banking</strong>
+      <p>Pay using your bank account.</p>
+    </div>
+
+  </label>
+
+</section>
+
+
+      <button
+        id="placeOrderBtn"
+        class="place-order-btn"
+      >
+        Place Order →
+      </button>
+
+
+      <p
+        id="checkoutMessage"
+        class="checkout-message"
+      ></p>
+
+    </div>
+
+
+    <!-- RIGHT -->
+
+    <aside class="order-summary">
+
+      <h2>Order Summary</h2>
+
+      <div id="checkoutItems">
+
+        Loading...
+
+      </div>
+
+
+      <div class="summary-line">
+
+        <span>Subtotal</span>
+
+        <strong>
+          $<span id="checkoutSubtotal">0.00</span>
+        </strong>
+
+      </div>
+
+
+      <div class="summary-line">
+
+        <span>Shipping</span>
+
+        <strong>FREE</strong>
+
+      </div>
+
+
+      <div class="summary-total">
+
+        <span>Total</span>
+
+        <strong>
+          $<span id="checkoutTotal">0.00</span>
+        </strong>
+
+      </div>
+
+    </aside>
+
+  </div>
+
+</main>
+
+
+<script src="/js/api.js"></script>
+<script src="/js/checkout.js"></script>
+
+</body>
+
+</html>
